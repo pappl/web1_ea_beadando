@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './App.css';
+
 
 export default function GuessNumber() {
   const getRandomNumber = () => Math.floor(Math.random() * 100) + 1;
@@ -42,8 +44,8 @@ export default function GuessNumber() {
         onChange={(e) => setGuess(e.target.value)}
         placeholder="Írd be a tipped..."
       />
-      <button class="mainbtn" onClick={handleGuess}>Tipp</button>
-      <button class="mainbtn" onClick={resetGame}>Új játék</button>
+      <button className="mainbtn" onClick={handleGuess}>Tipp</button>
+      <button className="mainbtn" onClick={resetGame}>Új játék</button>
       <p>{message}</p>
     </div>
   );
