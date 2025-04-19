@@ -66,7 +66,7 @@
     <button onclick="shortMessage()">Üzenet</button>
     </section>        
     <hr>
-    
+
     <section id="sse">
         <h2>Server-Sent Events</h2>
         <button onclick="startFakeSSE()">Adatfolyam indítása</button>
@@ -84,6 +84,30 @@
       </section>
     <hr>      
 
+    <section id="canvas">
+        <h2>Canvas API</h2>
+        <canvas id="rajz" width="300" height="300" style="border:1px solid #000;"></canvas>
+      </section>
+    <hr>
+
+    <section id="svg">
+        <h2>SVG példa</h2>
+      
+        <svg width="300" height="200" style="border: 1px solid #ccc;">
+          <circle cx="60" cy="60" r="30" fill="gold" />
+      
+          <line x1="60" y1="10" x2="60" y2="0" stroke="orange" stroke-width="3" />
+          <line x1="60" y1="110" x2="60" y2="120" stroke="orange" stroke-width="3" />
+          <line x1="10" y1="60" x2="0" y2="60" stroke="orange" stroke-width="3" />
+          <line x1="110" y1="60" x2="120" y2="60" stroke="orange" stroke-width="3" />
+      
+          <ellipse cx="200" cy="90" rx="40" ry="25" fill="#ddd" />
+          <ellipse cx="230" cy="90" rx="30" ry="20" fill="#ddd" />
+          <ellipse cx="170" cy="90" rx="30" ry="20" fill="#ddd" />
+        </svg>
+      </section>
+      
+      
   </div>
 
   <footer>

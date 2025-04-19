@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', loadItems);
         loadItems();
         }
     } 
-    
+
 //web worker
 function bigLoop(){
     if (typeof(Worker) !== "undefined") {
@@ -95,3 +95,46 @@ const dragBox = document.getElementById("drag-box");
             dropZone.classList.remove("hover");
           }
         });
+
+
+//canvas
+const canvas = document.getElementById("rajz");
+        const ctx = canvas.getContext("2d");
+      
+        // ház test
+        ctx.fillStyle = "#ffcc66";
+        ctx.fillRect(80, 120, 140, 120);
+      
+        // tető
+        ctx.beginPath();
+        ctx.moveTo(80, 120);
+        ctx.lineTo(150, 60);
+        ctx.lineTo(220, 120);
+        ctx.closePath();
+        ctx.fillStyle = "#cc6666";
+        ctx.fill();
+      
+        // ajtó
+        ctx.fillStyle = "#663300";
+        ctx.fillRect(135, 180, 30, 60);
+      
+        // ablakok
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(95, 135, 25, 25);
+        ctx.fillRect(180, 135, 25, 25);
+      
+        // függőleges vonal az ablakokon
+        ctx.beginPath();
+        ctx.moveTo(107.5, 135);
+        ctx.lineTo(107.5, 160);
+        ctx.moveTo(192.5, 135);
+        ctx.lineTo(192.5, 160);
+        ctx.stroke();
+      
+        // vízszintes vonal az ablakokon
+        ctx.beginPath();
+        ctx.moveTo(95, 147.5);
+        ctx.lineTo(120, 147.5);
+        ctx.moveTo(180, 147.5);
+        ctx.lineTo(205, 147.5);
+        ctx.stroke();
