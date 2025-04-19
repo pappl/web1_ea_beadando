@@ -207,3 +207,18 @@
     background-color: #aed1b8;
     border-color: #2f633f;
   }
+  label {
+    display: inline-block;
+    width: 80px;
+  }
+  input {
+    margin-bottom: 5px;
+  }
+  .message {
+    margin-top: 10px;
+    font-weight: bold;
+    color: green;
+  }
+  .error {
+    color: red;
+  }

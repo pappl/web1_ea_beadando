@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax - Web-programozás-1</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/ajax.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Web-programozás-1 Előadás Házi feladat</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Főoldal</a></li>
+      <li><a href="tabla.html">Táblázat</a></li>
+      <li><a href="html5.html">HTML5</a></li>
+      <li><a href="chartjs.html">ChartJS</a></li>
+      <li class="active"><a href="ajax.html">AJAX</a></li>
+      <li><a href="oojs.html">OOJS</a></li>
+    </ul>
+  </nav>
+
+  <aside>
+    <p>Személyek nevét, magasságát és súlyát tartalmazza a táblázat, amihez hozzá lehet adni, ID alapján módosítani és törölni lehet az adatokat.</p>
+  </aside>
+
+  <div id="content">
+    <h1>AJAX alapú CRUD alkalmazás</h1>
+
+  <section>
+    <h2>Új adat hozzáadása</h2>
+    <label for="name">Név:</label>
+    <input type="text" id="name"><br>
+    <label for="height">Magasság:</label>
+    <input type="text" id="height"><br>
+    <label for="weight">Súly:</label>
+    <input type="text" id="weight"><br>
+    <button id="createBtn">Hozzáadás</button>
+    <div id="createMsg" class="message"></div>
+  </section>
+
+  <section>
+    <h2>Adatok lekérdezése</h2>
+    <button id="readBtn">Adatok betöltése</button>
+    <div id="summary"></div>
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Név</th>
+          <th>Magasság</th>
+          <th>Súly</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section>
+    <hr>
+    <h2>Adat módosítása</h2>
+    <label for="editId">ID:</label>
+    <input type="number" id="editId" />
+    <button id="getDataBtn">Adat betöltése</button><br>
+    <div id="anotherCreateMsg" class="message"></div>
+    <label for="updateName">Név:</label>
+    <input type="text" id="updateName"><br>
+    <label for="updateHeight">Magasság:</label>
+    <input type="text" id="updateHeight"><br>
+    <label for="updateWeight">Súly:</label>
+    <input type="text" id="updateWeight"><br>
+    <button id="updateBtn">Módosítás</button>
+    <button id="AcancelBtn">Mégse</button>
+    <div id="updateMsg" class="message"></div>
+   
+  </section>
+
+  <section>
+    <h2>Adat törlése</h2>
+    <label for="deleteId">ID:</label>
+    <input type="text" id="deleteId">
+    <button id="deleteBtn">Törlés</button>
+    <div id="deleteMsg" class="message"></div>
+  </section>
+  </div>
+
+  <footer>
+    <p>Papp Lili - ALH5L5</p>
+  </footer>
+</body>
+</html>
