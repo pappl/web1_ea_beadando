@@ -132,3 +132,25 @@
     padding-right: 5px;
     transition: width 0.4s ease-in-out;
   }
+
+  .subnav {
+    background-color: #2a5637;
+    color: white;
+    text-align: center;
+  }
+  .subnav ul {
+    list-style-type: none;
+    display: flex;
+  }
+  
+  .subnav li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+  }
+  
+  .subnav li.active a,
+  .subnav li a:hover {
+    background-color: #2f633f;
+  }

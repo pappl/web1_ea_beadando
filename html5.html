@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Főoldal - Web-programozás-1</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/crud.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Web-programozás-1 Előadás Házi feladat</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Főoldal</a></li>
+      <li><a href="tabla.html">Táblázat</a></li>
+      <li class="active"><a href="html5.html">HTML5</a></li>
+      <li><a href="chartjs.html">ChartJS</a></li>
+      <li><a href="ajax.html">AJAX</a></li>
+      <li><a href="oojs.html">OOJS</a></li>
+    </ul>
+  </nav>
+
+  <nav class ="subnav">
+    <ul>
+        <li><a href="#webstorage">Web Storage</a></li>
+        <li><a href="#webworkers">Web Workers</a></li>
+        <li><a href="#sse">SSE</a></li>
+        <li><a href="#geolocation">Geolocation</a></li>
+        <li><a href="#dragdrop">Drag and Drop</a></li>
+        <li><a href="#canvas">Canvas</a></li>
+        <li><a href="#svg">SVG</a></li>
+    </ul>
+  </nav>
+
+  <aside>
+    <p>Ez az oldal 1-1 példát tartalmaz a következőkre:</p>
+    <ul>
+      <li>Web Storage</li>
+      <li>Web Workers</li>
+      <li>Server-Sent Events</li>
+      <li>Geolocation API</li>
+      <li>Drag and drop API</li>
+      <li>Canvas</li>
+      <li>SVG</li>
+    </ul>
+  </aside>
+
+  <div id="content">
+    <section id="webstorage">
+        <h2>Web Storage</h2>
+      
+        <input type="text" id="storageInput" placeholder="Írj be valamit">
+        <button onclick="addItem()">Mentés</button>
+        <button onclick="clearItems()">Összes törlése</button>
+      
+        <ul id="storageList"></ul>
+      </section>
+      
+      <script>
+        window.addEventListener('DOMContentLoaded', loadItems);
+      
+        function addItem() {
+          const input = document.getElementById('storageInput');
+          const value = input.value.trim();
+          if (!value) return;
+      
+          let items = JSON.parse(localStorage.getItem('myList')) || [];
+          items.push(value);
+          localStorage.setItem('myList', JSON.stringify(items));
+          input.value = '';
+          loadItems();
+        }
+      
+        function loadItems() {
+          const list = document.getElementById('storageList');
+          list.innerHTML = '';
+      
+          const items = JSON.parse(localStorage.getItem('myList')) || [];
+          items.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            list.appendChild(li);
+          });
+        }
+      
+        function clearItems() {
+          if (confirm('Biztos törölni szeretnéd az összes adatot?')) {
+            localStorage.removeItem('myList');
+            loadItems();
+          }
+        }
+      </script>
+           
+
+           <section id="webworkers">
+            <h2>Web Workers</h2>
+            <button onclick="bigLoop()">Hosszú ciklus</button>
+            <button onclick="shortMessage()">Üzenet</button>
+          </section>
+          <script>
+			function bigLoop(){
+				if (typeof(Worker) !== "undefined") {
+					var worker = new Worker('js/worker.js');
+					worker.onmessage = function (event) {
+						alert("Lefutott " + event.data + " ismétlés" );
+					};
+				} else {
+					alert("Sorry, your browser does not support Web Workers..." );
+				}
+			}
+			function shortMessage(){
+				alert("Hello felhasználó! :)" );
+			}
+		</script>         
+    
+    <section id="sse">
+        <h2>Server-Sent Events</h2>
+        <button onclick="startFakeSSE()">Adatfolyam indítása</button>
+        <button onclick="stopFakeSSE()">Leállítás</button>
+        <ul id="sseOutput"></ul>
+      </section>
+      
+      <script>
+        let fakeSSEInterval = null;
+        let counter = 1;
+      
+        function startFakeSSE() {
+          const output = document.getElementById("sseOutput");
+          output.innerHTML = "<li>Csatlakozva az 'ál-szerverhez'...</li>";
+      
+          fakeSSEInterval = setInterval(() => {
+            const item = document.createElement("li");
+            item.textContent = `Üzenet ${counter++} érkezett a szervertől (${new Date().toLocaleTimeString()})`;
+            output.appendChild(item);
+          }, 3000);
+        }
+      
+        function stopFakeSSE() {
+          clearInterval(fakeSSEInterval);
+          const item = document.createElement("li");
+          item.textContent = "Kapcsolat lezárva.";
+          document.getElementById("sseOutput").appendChild(item);
+        }
+      </script>
+      
+  </div>
+
+  <footer>
+    <p>Papp Lili - ALH5L5</p>
+  </footer>
+</body>
+</html>
