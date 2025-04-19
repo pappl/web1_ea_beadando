@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>Főoldal - Web-programozás-1</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/crud.js" defer></script>
+  <script src="js/html5.js" defer></script>
+  <script src="js/worker.js" defer></script>
 </head>
 <body>
   <header>
@@ -56,95 +57,33 @@
         <button onclick="clearItems()">Összes törlése</button>
       
         <ul id="storageList"></ul>
-      </section>
-      
-      <script>
-        window.addEventListener('DOMContentLoaded', loadItems);
-      
-        function addItem() {
-          const input = document.getElementById('storageInput');
-          const value = input.value.trim();
-          if (!value) return;
-      
-          let items = JSON.parse(localStorage.getItem('myList')) || [];
-          items.push(value);
-          localStorage.setItem('myList', JSON.stringify(items));
-          input.value = '';
-          loadItems();
-        }
-      
-        function loadItems() {
-          const list = document.getElementById('storageList');
-          list.innerHTML = '';
-      
-          const items = JSON.parse(localStorage.getItem('myList')) || [];
-          items.forEach((item, index) => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            list.appendChild(li);
-          });
-        }
-      
-        function clearItems() {
-          if (confirm('Biztos törölni szeretnéd az összes adatot?')) {
-            localStorage.removeItem('myList');
-            loadItems();
-          }
-        }
-      </script>
-           
+    </section>   
+    <hr>
 
-           <section id="webworkers">
-            <h2>Web Workers</h2>
-            <button onclick="bigLoop()">Hosszú ciklus</button>
-            <button onclick="shortMessage()">Üzenet</button>
-          </section>
-          <script>
-			function bigLoop(){
-				if (typeof(Worker) !== "undefined") {
-					var worker = new Worker('js/worker.js');
-					worker.onmessage = function (event) {
-						alert("Lefutott " + event.data + " ismétlés" );
-					};
-				} else {
-					alert("Sorry, your browser does not support Web Workers..." );
-				}
-			}
-			function shortMessage(){
-				alert("Hello felhasználó! :)" );
-			}
-		</script>         
+    <section id="webworkers">
+    <h2>Web Workers</h2>
+    <button onclick="bigLoop()">Hosszú ciklus</button>
+    <button onclick="shortMessage()">Üzenet</button>
+    </section>        
+    <hr>
     
     <section id="sse">
         <h2>Server-Sent Events</h2>
         <button onclick="startFakeSSE()">Adatfolyam indítása</button>
         <button onclick="stopFakeSSE()">Leállítás</button>
         <ul id="sseOutput"></ul>
+    </section>
+    <hr>
+
+    <section id="dragdrop">
+        <h2>Drag and Drop API</h2>
+      
+        <div id="drag-box" draggable="true">Húzz el engem!</div>
+      
+        <div id="drop-zone">Dobd ide!</div>
       </section>
-      
-      <script>
-        let fakeSSEInterval = null;
-        let counter = 1;
-      
-        function startFakeSSE() {
-          const output = document.getElementById("sseOutput");
-          output.innerHTML = "<li>Csatlakozva az 'ál-szerverhez'...</li>";
-      
-          fakeSSEInterval = setInterval(() => {
-            const item = document.createElement("li");
-            item.textContent = `Üzenet ${counter++} érkezett a szervertől (${new Date().toLocaleTimeString()})`;
-            output.appendChild(item);
-          }, 3000);
-        }
-      
-        function stopFakeSSE() {
-          clearInterval(fakeSSEInterval);
-          const item = document.createElement("li");
-          item.textContent = "Kapcsolat lezárva.";
-          document.getElementById("sseOutput").appendChild(item);
-        }
-      </script>
-      
+    <hr>      
+
   </div>
 
   <footer>

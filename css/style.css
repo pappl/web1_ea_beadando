@@ -154,3 +154,56 @@
   .subnav li a:hover {
     background-color: #2f633f;
   }
+  section {
+    margin: 20px 0;
+    padding: 10px;
+  }
+
+  hr {
+    border: 1px solid #2f633f;
+    margin: 20px 0;
+  }
+
+  h2{
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  button {
+    background-color: #2a5637;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  #drag-box {
+    width: 120px;
+    padding: 10px;
+    background-color: #2a5637;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    cursor: grab;
+  }
+
+  #drop-zone {
+    width: 200px;
+    height: 120px;
+    border: 2px dashed #999;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+  }
+
+  #drop-zone.hover {
+    background-color: #aed1b8;
+    border-color: #2f633f;
+  }
