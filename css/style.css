@@ -222,3 +222,24 @@
   .error {
     color: red;
   }
+  .animal-card { 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin: 5px; 
+    border-radius: 10px; 
+  }
+  select{
+    width: 150px;
+    text-align: left;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 5px;
+    transition: width 0.4s ease-in-out;
+    margin-bottom: 5px;
+  }
