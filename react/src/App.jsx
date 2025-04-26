@@ -10,8 +10,8 @@ export default function App() {
   return (
     <div>
       <h1>React Játékok</h1>
-      <button onClick={() => setApp('minesweeper')}>Aknakereső</button>
-      <button onClick={() => setApp('guess')}>Találd ki a számot</button>
+      <button class="mainbtn" onClick={() => setApp('minesweeper')}>Aknakereső</button>
+      <button class="mainbtn" onClick={() => setApp('guess')}>Találd ki a számot</button>
 
       {app === 'minesweeper' && <Minesweeper />}
       {app === 'guess' && <GuessNumber />}
